@@ -69,7 +69,3 @@ work, tests, or other changes before your pull request can be ultimately accepte
 All Python code is linted with [Flake8](https://github.com/PyCQA/flake8) and formated with
 [Isort](https://github.com/PyCQA/isort) and [Black](https://github.com/psf/black). You can
 execute `inv[oke] lint` and `inv[oke] format`.
-
-## Additional Notes
-
-If you have any question feel free to contact us at {{ cookiecutter.contact_method|default("[INSERT CONTACT METHOD]", true) }}.

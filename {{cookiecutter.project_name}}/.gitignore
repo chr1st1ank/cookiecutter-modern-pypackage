@@ -130,3 +130,13 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# IDE project settings
+.spyderproject
+.spyproject
+.ropeproject
+.idea
+.vscode
+
+# local folder
+local/
