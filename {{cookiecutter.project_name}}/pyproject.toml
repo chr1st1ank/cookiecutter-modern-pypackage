@@ -33,7 +33,7 @@ classifiers=[
 ]
 {% if cookiecutter.project_name.lower().replace('-', '_') != cookiecutter.project_slug %}
 packages = [
-    { include = "{{ cookiecutter.project_slug }}", from = "src" },
+    { include = "{{ cookiecutter.project_slug }}" },
 ]
 {% endif %}
 
