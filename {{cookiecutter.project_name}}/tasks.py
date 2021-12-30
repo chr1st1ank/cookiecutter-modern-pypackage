@@ -177,10 +177,15 @@ def docs(c, serve=False, open_browser=False):
     help={
         "part": "Part of the version to be bumped.",
         "dry_run": "Don't write any files, just pretend. (default: False)",
+        "allow_dirty": "Normally, bumpversion will abort if the working directory is dirty to protect yourself from releasing unversioned files and/or overwriting unsaved changes. Use this option to override this check.",
     }
 )
-def version(c, part, dry_run=False):
-    # type: (Context, str, bool) -> None
+def version(c, part, dry_run=False, allow_dirty=False):
+    # type: (Context, str, bool, bool) -> None
     """Bump version."""
-    bump_options = ["--dry-run"] if dry_run else []
+    bump_options = []
+    if dry_run:
+        bump_options.append("--dry-run")
+    if allow_dirty:
+        bump_options.append("--allow-dirty")
     _run(c, f"poetry run bump2version {' '.join(bump_options)} {part}")

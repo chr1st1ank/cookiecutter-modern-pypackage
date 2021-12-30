@@ -69,3 +69,15 @@ work, tests, or other changes before your pull request can be ultimately accepte
 All Python code is linted with [Flake8](https://github.com/PyCQA/flake8) and formated with
 [Isort](https://github.com/PyCQA/isort) and [Black](https://github.com/psf/black). You can
 execute `inv[oke] lint` and `inv[oke] format`.
+
+## Deploying
+
+A reminder for the maintainers on how to deploy.
+
+On branch "main":
+
+- Adjust CHANGELOG.md as described on [https://keepachangelog.com](https://keepachangelog.com).
+- Adjust the version number in dframeio/__init__.py.
+- Then run `poetry run invoke version [major | minor | patch]`. This updates the version numbers and creates a tagged commit.
+- Push the commit to github: `git push --tags`
+- A github action will automatically create a github release and publish to pypi
