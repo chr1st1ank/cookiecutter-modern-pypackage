@@ -51,6 +51,3 @@ add_contributing_file
 
 add_security_file
      Whether to add a Security Policy file.
-
-contact_method
-    Whether to add a contact method. Used on files such of `CODE_OF_CONDUCT.md`, `CONTRIBUTING.md` and `SECURITY.md`.
