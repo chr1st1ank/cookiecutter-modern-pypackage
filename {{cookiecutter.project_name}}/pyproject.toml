@@ -113,7 +113,19 @@ mccabe = ["+*"]
 "flake8-*" = ["+*"]
 darglint = ["+*"]
 
-[tool.flakehell.exceptions."tests/"]
+[tool.flakehell.exceptions."*"]
+pycodestyle = [
+    "-E203",  # whitespace before ‘:’, conflict with black
+    "-E266",  # Comments with multiple ##
+    "-W504",  # Line breaks after binary operators. These are preferred according to  PEP8
+]
+
+[tool.flakehell.exceptions."tests/test_*.py"]
+flake8-annotations = [  # Allow more sloppy styling in tests
+    "-ANN001",  # Missing type annotation for function argument
+    "-ANN201",  # Missing return type annotation for public function
+    "-W291"     # Trailing whitespace. Often appears in multiline strings in tests
+]
 flake8-bandit = ["-S101"]
 
 [tool.isort]
