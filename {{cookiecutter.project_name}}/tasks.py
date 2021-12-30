@@ -18,7 +18,7 @@ DOCS_INDEX = DOCS_BUILD_DIR.joinpath("index.html")
 COVERAGE_FILE = ROOT_DIR.joinpath(".coverage")
 COVERAGE_DIR = ROOT_DIR.joinpath("htmlcov")
 COVERAGE_REPORT = COVERAGE_DIR.joinpath("index.html")
-SOURCE_DIR = ROOT_DIR.joinpath("{{ cookiecutter.project_slug }}")
+SOURCE_DIR = ROOT_DIR.joinpath("narrow_down")
 TEST_DIR = ROOT_DIR.joinpath("tests")
 PYTHON_TARGETS = [
     SOURCE_DIR,
@@ -177,7 +177,9 @@ def docs(c, serve=False, open_browser=False):
     help={
         "part": "Part of the version to be bumped.",
         "dry_run": "Don't write any files, just pretend. (default: False)",
-        "allow_dirty": "Normally, bumpversion will abort if the working directory is dirty to protect yourself from releasing unversioned files and/or overwriting unsaved changes. Use this option to override this check.",
+        "allow_dirty": "Normally, bumpversion will abort if the working directory is "
+        "dirty to protect yourself from releasing unversioned files and/or "
+        "overwriting unsaved changes. Use this option to override this check.",
     }
 )
 def version(c, part, dry_run=False, allow_dirty=False):
