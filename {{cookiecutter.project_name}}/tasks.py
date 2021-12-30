@@ -18,7 +18,7 @@ DOCS_INDEX = DOCS_BUILD_DIR.joinpath("index.html")
 COVERAGE_FILE = ROOT_DIR.joinpath(".coverage")
 COVERAGE_DIR = ROOT_DIR.joinpath("htmlcov")
 COVERAGE_REPORT = COVERAGE_DIR.joinpath("index.html")
-SOURCE_DIR = ROOT_DIR.joinpath("narrow_down")
+SOURCE_DIR = ROOT_DIR.joinpath("{{ cookiecutter.project_slug }}")
 TEST_DIR = ROOT_DIR.joinpath("tests")
 PYTHON_TARGETS = [
     SOURCE_DIR,
@@ -68,6 +68,7 @@ def clean_docs(c):
     # type: (Context) -> None
     """Clean up files from documentation builds."""
     _run(c, f"rm -fr {DOCS_BUILD_DIR}")
+    _run(c, f"rm -f {DOCS_DIR}/modules.rst {DOCS_DIR}/{{cookiecutter.project_slug}}.rst")
 
 
 @task(pre=[clean_build, clean_python, clean_tests, clean_docs])
